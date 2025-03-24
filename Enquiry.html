@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry Form</title>
+    <link rel="stylesheet" href="Enquiry.css">
+</head>
+<body>
+    
+    <div class="form-popup" >
+        <form class="form-container" id="enquiryForm" action="enquiry.php" method="post">
+            <h2>Enquiry Form</h2>
+
+            <label for="fullname">Your Full Name</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Your Full Name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Email Address" required>
+
+            <label for="mobile">Mobile</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="Mobile Number" required>
+
+            <label for="city">Your City</label>
+            <input type="text" id="city" name="city" placeholder="Your City Name" required>
+
+            <label for="destination">Preferred Destination</label>
+            <input type="text" id="Destination" name="Destination" placeholder="Country Name" required>
+
+            <!-- <label for="office">Nearest Office</label>
+            <select id="office" name="office" required>
+                <option value="">Please Select</option>
+                <option value="office1">Office 1</option>
+                <option value="office2">Office 2</option>
+            </select> -->
+
+            <label for="coaching">Are you looking for coaching?</label>
+            <select id="coaching" name="coaching" required>
+                <option value="">Please Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="loan">Are you looking for Education Loan?</label>
+            <select id="loan" name="loan" required>
+                <option value="">Please Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label>Please verify that you are human</label>
+            <img src="captcha.php" id="captchaImage" alt="Captcha" onclick="reloadCaptcha()">
+            <input type="text" id="captcha" name="captcha" placeholder="Enter Captcha" required>
+
+            <script>
+                function reloadCaptcha() {
+                    document.getElementById("captchaImage").src = "captcha.php?" + Math.random();
+                }
+            </script>
+
+            <label>
+                <input type="checkbox" id="terms" name="terms" required>
+                I agree to the <a href="#">terms & conditions</a>.
+            </label>
+
+            <button type="submit">Submit</button>
+        </form>
+
+
+
+
+    </div>
+
+
+
+
+
+
+</body>
+</html>

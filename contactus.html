@@ -1,0 +1,26 @@
+<form id="contactForm" method="post" enctype="multipart/form-data">
+<div class="contact-us-first">
+    <div class="contact-us-box">
+
+<div class="contact-container">
+    <h2>CONTACT INFO</h2>
+    <input type="text" name="name" placeholder="Name">
+    <input type="email" name="email" placeholder="Email*">
+    <textarea name="message" placeholder="What are your educational goals?" rows="4"></textarea>
+
+    <!-- <div class="file-upload">
+        <span>&#128206; Attach Files</span>
+        <span>Attachments (0)</span>
+    </div> -->
+    <label class="file-upload">
+        <input type="file" id="fileInput" name="files[]" multiple hidden>
+            <span id="attachText">&#128206; Attach Files</span>
+            <span id="fileCount">Attachments (0)</span>
+    </label>
+    <button class="send-btn">Send</button>
+    <p class="recaptcha-info">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</p>
+</div>
+</div>
+
+</div>
+</form>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASA Overseas</title>
+    <link rel="stylesheet" href="Contact.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+
+    
+    
+   <div class="starting"> 
+    <header class="navbar">
+        <div class="logo">ASA Overseas </div>
+        <nav>
+            <ul>
+                <li><a href="./index.html">About</a></li>
+                <li><a href="./Services.html">Counseling</a></li>
+                <li><a href="./Countries.html">Countries</a></li>
+                <li><a href="./Contact.html">Contact Us</a></li>
+               
+            </ul>
+        </nav>
+        <div class="menu-icon" onclick="toggleMobileNav()">☰</div>
+      
+    </header>
+    <div class="mobile-nav" id="mobileNav">
+        <div class="close-icon" onclick="toggleMobileNav()">✖</div>
+         <a href="./index.html">About</a>
+        <a href="./Services.html">Counselling </a>
+        <a href="./Countries.html">Countries</a>
+        <a href="./Contact.html">Contact US</a>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p>We are transcending borders and expanding our global reach..</p>
+            <p>📞 9511236383</p>
+            <p>📧  info@asaoverseas.com </p>
+            <p>📍 Nagpur , Maharashta , India </p>
+        </div>
+        <div class="contact-form">
+            <h2>Get In Touch</h2>
+            <form action="contact.php" method="post">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Trangely">
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="hello@nurency.com">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Your Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="I want to hire you quickly">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Write here your message"></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+
+            <!-- Popup Message -->
+<div id="popupMessage" class="popup" style="display: none;">
+    <div class="popup-content">
+        <p id="popupText"></p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+</div>
+
+            
+        </div>
+    </div>
+
+  <script>
+    function toggleMobileNav() {
+        const mobileNav = document.getElementById('mobileNav');
+        const closeIcon = document.querySelector('.close-icon');
+        mobileNav.classList.toggle('active');
+        closeIcon.classList.toggle('active');
+    }
+  </script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector("form").addEventListener("submit", function (event) {
+        event.preventDefault(); 
+
+        var formData = new FormData(this);
+
+        fetch("contact.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            showPopup(data.message);
+            if (data.status === "success") {
+                document.querySelector("form").reset(); 
+            }
+        })
+        .catch(error => console.error("Error:", error));
+    });
+});
+
+function showPopup(message) {
+    document.getElementById("popupText").innerText = message;
+    document.getElementById("popupMessage").style.display = "block";
+}
+
+function closePopup() {
+    document.getElementById("popupMessage").style.display = "none";
+}
+</script>
+
+
+</body>
+</html>
