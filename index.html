@@ -20,7 +20,7 @@
         <div class="logo">ASA Overseas </div>
         <nav>
             <ul>
-                <li><a href="./index.html">About</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="./Services.html">Counseling</a></li>
                 <li><a href="./Countries.html">Countries</a></li>
                 <li><a href="./Contact.html">Contact Us</a></li>
@@ -32,7 +32,7 @@
     </header>
     <div class="mobile-nav" id="mobileNav">
         <div class="close-icon" onclick="toggleMobileNav()">✖</div>
-        <a href="./index.html">About</a>
+        <a href="#about">About</a>
         <a href="./Services.html">Counseling</a>
         <a href="./Countries.html">Countries</a>
         <a href="./Contact.html">Contact Us</a>
@@ -50,7 +50,7 @@
         <div class="hero-content">
             <h1>We are bringing overseas education within everyone’s reach</h1>
             <p>Our Tech-enabled solutions help international students and recruitment partners choose the best global universities</p>
-            <button class="start-btn">Start Your Journey</button>
+            <a href="Countries.html" class="start-btn">Start Your Journey</a>
         </div>
         <div class="hero-image">
             <img src="/photos/download.png" alt="Girl with laptop">
@@ -60,7 +60,7 @@
 
 
 
-    <section class="about-hero">
+    <section id="about"  class="about-hero">
         <h1 class="h1-service"> Welcome To ASA OVERSEAS !! </h1>
     <div class="container">
         
@@ -69,7 +69,7 @@
         </div>
         <div class="text-container">
             <h1 class="text-h1">ABOUT US</h1>
-            <p>Welcome to ASA Overseas! We are a dedicated education consultancy firm committed to helping students achieve their dreams of studying abroad. With offices located in Nagpur, Rajpur, Bhopal, Indore, and Jabalpur, our team of expert consultants provides comprehensive guidance and support throughout your educational journey. From free counseling sessions to assist you in choosing the right university, to helping you craft a compelling Statement of Purpose and Letter of Recommendation, we are with you every step of the way. We specialize in facilitating admissions to top universities in the USA, UK, Australia, and Ireland, ensuring you receive the best opportunities for your future.</p>
+            <p>Welcome to ASA Overseas! We are a dedicated education consultancy firm committed to helping students achieve their dreams of studying abroad. With offices located in Nagpur, Raipur, Bhopal, Indore, and Jabalpur, our team of expert consultants provides comprehensive guidance and support throughout your educational journey. From free counseling sessions to assist you in choosing the right university, to helping you craft a compelling Statement of Purpose and Letter of Recommendation, we are with you every step of the way. We specialize in facilitating admissions to top universities in the USA, UK, Australia, and Ireland, ensuring you receive the best opportunities for your future.</p>
         </div>
     </div>
 </section>
@@ -89,35 +89,43 @@
             <button class="arrow left" onclick="moveSlide(-1)">❮</button>
             <div class="slide" id="slide">
                 <div class="slide-item">
-                    <img src="./photos/1st-image.jpg" alt="Interior 1">
+                    <a href="services.html" >
+                    <img src="./photos/1st-image.jpg" alt="Interior 1"> </a>
                     <h1 onclick="window.location.href='Services.html' ">Academic Counseling</h1>
                 </div>
                 <div class="slide-item">
-                    <img src="./photos/2nd-image.jpg" alt="Interior 2">
+                    <a href="services.html" >
+                    <img src="./photos/2nd-image.jpg" alt="Interior 2"> </a>
                     <h1 onclick="window.location.href='Services.html'     ">Test Preparation </h1>
                 </div>
                 <div class="slide-item">
-                    <img src="./photos/3rd-image.jpg" alt="Passage 1">
+                    <a href="services.html">
+                    <img src="./photos/3rd-image.jpg" alt="Passage 1"> </a>
                     <h1 onclick="window.location.href='Services.html'     ">Career Coaching</h1>
                 </div>
                 <div class="slide-item">
-                    <img src="./photos/4th-image.jpeg" alt="Passage 2">
+                    <a href="services.html">
+                    <img src="./photos/4th-image.jpeg" alt="Passage 2"> </a>
                     <h1 onclick="window.location.href='Services.html'     ">University Shortlisting</h1>
                 </div>
                 <div class="slide-item">
-                    <img src="./photos/application.jpg" alt="Parking Space 1">
+                    <a href="services.html" >
+                    <img src="./photos/application.jpg" alt="Parking Space 1"> </a>
                     <h1 onclick="window.location.href='Services.html'  ">Application Review</h1>
                 </div>
                 <div class="slide-item">
-                    <img src="./photos/admission.jpg" alt="Parking Space 2">
+                    <a href="services.html" >
+                    <img src="./photos/admission.jpg" alt="Parking Space 2"> </a>
                     <h1 onclick="window.location.href='Services.html'         ">Admission</h1>
                 </div>
                 <div class="slide-item">
-                    <img src="./photos/5th-image.jpg" alt="Interior 1">
+                    <a href="services.html" >
+                    <img src="./photos/5th-image.jpg" alt="Interior 1"> </a>
                     <h1 onclick="window.location.href='Services.html'">Scholarship Assistance</h1>
                 </div>
                 <div class="slide-item">
-                    <img src="./photos/visa.jpg" alt="Interior 2">
+                    <a href="services.html" >
+                    <img src="./photos/visa.jpg" alt="Interior 2"> </a>
                     <h1 onclick="window.location.href='Services.html'">Student Visa Support</h1>
                 </div>
             </div>
@@ -132,7 +140,8 @@
 <div class="countries">
 <section class="container1">
     <div class="image-text-container">
-        <img src="./photos/countries1.svg" alt="Multi-country collage" class="main-image">
+        <a href="Countries.html" >
+        <img src="./photos/countries1.svg" alt="Multi-country collage" class="main-image"></a>
         <div class="text-content">
             <h1>ASA Multi Country Advantage</h1>
             <p>The World is your Campus!</p>
@@ -158,14 +167,14 @@
 
         
         <div class="footer-links">
-            <div class="column">
+            <!-- <div class="column">
                 <h3>About</h3>
                 <ul>
                     <li><a href="#">Who We Are</a></li>
                      <li><a href="#">Our History</a></li>
                     
                 </ul>
-            </div>
+            </div> -->
             <!-- <div class="column">
                 <h3>Events</h3>
                 <ul>
@@ -185,8 +194,8 @@
             <div class="column">
                 <h3>Legal</h3>
                 <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="./Privacy.html">Privacy Policy</a></li>
+                    <li><a href="./Terms.html">Terms & Conditions</a></li>
                 </ul>
             </div>
         </div>

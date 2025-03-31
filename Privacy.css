@@ -1,0 +1,272 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.starting {
+
+    color: white;
+    padding: 10px;
+    
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    /* width: 100%; */
+    
+    /* background-color: #943f3f; */
+    background-color: #1a77d4;   
+
+}
+
+.logo {
+    font-size: 2.1em;
+    font-weight: bold;
+}
+
+.navbar .logo span {
+    font-weight: lighter;
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+}
+
+.cta-buttons button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+.close-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2rem;
+    z-index: 999;
+    overflow-y: auto;
+    margin-top: 60px;
+}
+.mobile-nav a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+.mobile-nav .cta-buttons button {
+    width: 100%;
+}
+@media (max-width: 768px) {
+    .navbar nav, .cta-buttons {
+        display: none;
+    }
+    .menu-icon {
+        display: block;
+    }
+    .mobile-nav.active {
+        display: flex;
+    }
+    .close-icon.active {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+    .logo {
+        font-size: 1.5em;  /* Decreased font size */
+        text-align: left;
+        margin-left: 0; /* Align to left */
+    }
+    .navbar {
+        justify-content: flex-start;  /* Ensure items are aligned to left */
+        padding-left: 1rem;
+    }
+
+}
+
+
+
+.privacy-terms {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.privacy-terms h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+}
+.privacy-terms p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer-bodyy {
+    background: #131313;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    padding: 50px 0;
+    text-align: center;
+}
+
+/* Footer container */
+.container-footer {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* Footer heading */
+.footer-1 h2 {
+    font-size: 26px;
+    color: #ff6600; /* Highlighted color */
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Footer Links Section */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Each column */
+.column {
+    flex: 1;
+    min-width: 200px;
+    text-align: left;
+}
+
+/* Column headings */
+.column h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ff6600;
+    padding-bottom: 5px;
+}
+
+/* Footer lists */
+.column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.column ul li {
+    margin: 8px 0;
+}
+
+.column ul li a {
+    color: #bbbbbb;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.column ul li a:hover {
+    color: #ffffff;
+}
+
+/* Copyright text */
+.copyright {
+    font-size: 14px;
+    margin-top: 40px;
+    color: #bbbbbb;
+}
+
+/* Make the footer fully centered */
+.footer-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .column {
+        text-align: center;
+    }
+
+    .column h3 {
+        border-bottom: none;
+    }
+}
+
+

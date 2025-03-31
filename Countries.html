@@ -49,7 +49,8 @@
         <div class="hero-content">
             <h1>The World is your Campus!</h1>
             <p>Aspire for more. Choose what suits you the best from top countries to study for international students, world over. The choices and opportunities our universities offer are endless!</p>
-            <button class="start-btn">Start Your Journey</button>
+            <button class="start-btn" onclick="openPopup()"  >Start Your Journey</button>
+            
         </div>
         <div class="hero-image">
             <img src="/photos/world_campus_e6f3c960f9-removebg-preview.jpg" alt="Girl with laptop">
@@ -317,20 +318,13 @@
 <footer class="footer-1">
     <div class="container-footer">
         <h2>Connect With Us</h2>
-        <p>Join Us and stay updated.</p>
+        <!-- <p>Join Us and stay updated.</p> -->
 
       
 
         
         <div class="footer-links">
-            <div class="column">
-                <h3>About</h3>
-                <ul>
-                    <li><a href="#">Who We Are</a></li>
-                    <li><a href="#">Our History</a></li>
-                    
-                </ul>
-            </div>
+          
            
             <div class="column">
                 <h3>Contact</h3>
@@ -343,8 +337,8 @@
             <div class="column">
                 <h3>Legal</h3>
                 <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="./Privacy.html">Privacy Policy</a></li>
+                    <li><a href="./Terms.html">Terms & Conditions</a></li>
                 </ul>
             </div>
         </div>
@@ -368,7 +362,7 @@
 
 <!-- Enquiry Form Popup -->
 
-<div class="popup-container" id="popupForm">
+<!-- <div class="popup-container" id="popupForm">
     <div class="form-popup">
         <span class="close-btn" onclick="closePopup()">&times;</span>
         <form class="form-container" id="enquiryForm" action="enquiry.php" method="post">
@@ -384,26 +378,12 @@
             <input type="tel" id="mobile" name="mobile" placeholder="Mobile Number" required>
 
             <label for="city">Your City</label>
-            <select id="city" name="city" required>
-                <option value="">Please Select</option>
-                <option value="city1">City 1</option>
-                <option value="city2">City 2</option>
-            </select>
+            <input type="text" id="city" name="city" placeholder="Your City Name" required>
 
             <label for="destination">Preferred Destination</label>
-            <select id="destination" name="destination" required>
-                <option value="">Please Select</option>
-                <option value="destination1">Destination 1</option>
-                <option value="destination2">Destination 2</option>
-            </select>
+            <input type="text" id="destination" name="destination" placeholder="Your Country Name" required>
 
-            <label for="office">Nearest Office</label>
-            <select id="office" name="office" required>
-                <option value="">Please Select</option>
-                <option value="office1">Office 1</option>
-                <option value="office2">Office 2</option>
-            </select>
-
+      
             <label for="coaching">Are you looking for coaching?</label>
             <select id="coaching" name="coaching" required>
                 <option value="">Please Select</option>
@@ -434,6 +414,127 @@
             </label>
 
             <button type="submit">Submit</button>
+        </form>
+    </div>
+</div> -->
+
+
+<div class="popup-container" id="popupForm">
+    <div class="form-popup">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <form class="form-container" id="enquiryForm" action="enquiry.php" method="post">
+            <h2>Enquiry Form</h2>
+
+            <label for="fullname">Your Full Name</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Your Full Name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Email Address" required>
+
+            <label for="mobile">Mobile</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="Mobile Number" required>
+
+            <label for="city">Your City</label>
+            <input type="text" id="cityInput" placeholder="Search and select a city" oninput="filterCities()" autocomplete="off">
+            <select id="city" name="city" size="5" onclick="selectCity(event)" onblur="hideDropdown(citySelect)" style="display: none;"></select>
+
+            <label for="destination">Preferred Destination</label>
+            <input type="text" id="destinationInput" placeholder="Search and select a country" oninput="filterCountries()" autocomplete="off">
+            <select id="destination" name="destination" size="5" onclick="selectCountry(event)" onblur="hideDropdown(destinationSelect)" style="display: none;"></select>
+
+            <label for="coaching">Are you looking for coaching?</label>
+            <select id="coaching" name="coaching" required>
+                <option value="">Please Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="loan">Are you looking for an Education Loan?</label>
+            <select id="loan" name="loan" required>
+                <option value="">Please Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <script>
+                const countries = [
+                    "United States", "Canada", "United Kingdom", "Australia", "Germany", "France", "Italy", "Spain",
+                    "Netherlands", "Sweden", "Switzerland", "Belgium", "Austria", "Norway", "Denmark", "Finland", "Ireland",
+                    "Portugal", "Greece", "Russia", "China", "Japan", "South Korea", "India", "Singapore", "Malaysia",
+                    "Indonesia", "Thailand", "Vietnam", "Philippines", "Brazil", "Argentina", "Mexico", "Colombia",
+                    "Chile", "Peru", "South Africa", "Egypt", "Turkey", "United Arab Emirates", "Saudi Arabia", "Pakistan",
+                    "Bangladesh", "Nigeria", "Kenya", "New Zealand", "Poland", "Czech Republic", "Hungary", "Romania","Other"
+                ];
+
+                const cities = [
+                    "New York", "Los Angeles", "Chicago", "Houston", "Miami", "Toronto", "Vancouver", "Montreal", "Calgary", "Ottawa",
+                    "London", "Manchester", "Birmingham", "Liverpool", "Edinburgh", "Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide",
+                    "Berlin", "Munich", "Hamburg", "Frankfurt", "Cologne", "Paris", "Lyon", "Marseille", "Toulouse", "Nice",
+                    "Rome", "Milan", "Naples", "Turin", "Florence", "Madrid", "Barcelona", "Valencia", "Seville", "Zaragoza","Other"
+                ];
+
+                const destinationSelect = document.getElementById("destination");
+                const destinationInput = document.getElementById("destinationInput");
+                const citySelect = document.getElementById("city");
+                const cityInput = document.getElementById("cityInput");
+
+                function populateDropdown(list, selectElement) {
+                    selectElement.innerHTML = "";
+                    list.forEach(item => {
+                        let option = document.createElement("option");
+                        option.value = item;
+                        option.textContent = item;
+                        selectElement.appendChild(option);
+                    });
+                }
+
+                function filterList(inputElement, list, selectElement) {
+                    let searchValue = inputElement.value.toLowerCase();
+                    selectElement.innerHTML = "";
+
+                    list.forEach(item => {
+                        if (item.toLowerCase().includes(searchValue)) {
+                            let option = document.createElement("option");
+                            option.value = item;
+                            option.textContent = item;
+                            selectElement.appendChild(option);
+                        }
+                    });
+
+                    selectElement.style.display = searchValue ? "block" : "none";  
+                }
+
+                function hideDropdown(selectElement) {
+                    setTimeout(() => {
+                        selectElement.style.display = "none";
+                    }, 200);
+                }
+
+                function selectCountry(event) {
+                    destinationInput.value = event.target.value;
+                    destinationSelect.style.display = "none";
+                }
+
+                function selectCity(event) {
+                    cityInput.value = event.target.value;
+                    citySelect.style.display = "none";
+                }
+
+                function filterCountries() {
+                    filterList(destinationInput, countries, destinationSelect);
+                }
+
+                function filterCities() {
+                    filterList(cityInput, cities, citySelect);
+                }
+            </script>
+
+            <label>
+                <input type="checkbox" id="terms" name="terms" required>
+                I agree to the <a href="#">terms & conditions</a>.
+            </label>
+
+            <button class="sub1" type="submit">Submit</button>
         </form>
     </div>
 </div>

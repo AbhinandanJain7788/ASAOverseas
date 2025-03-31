@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study Abroad</title>
     <link rel="stylesheet" href="Services.css">
-    <!-- <link rel="stylesheet" href="page2.css"> -->
-    
+    <!-- <link rel="stylesheet" href="page2.css">
+     -->
+    <!-- <link  rel="stylesheet"   href="Enquiry.css"> -->
 </head>
 <body>
 
@@ -530,21 +531,21 @@
             <footer class="footer-1">
                 <div class="container-footer">
                     <h2>Connect With Us</h2>
-                    <p>Join  and stay updated.</p>
+                
             
                   
                   
             
                     
                     <div class="footer-links">
-                        <div class="column">
+                        <!-- <div class="column">
                             <h3>About</h3>
                             <ul>
                                 <li><a href="#">Who We Are</a></li>
                                 <li><a href="#">Our History</a></li>
                                 <li><a href="#">Our Team</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                         <!-- <div class="column">
                             <h3>Events</h3>
                             <ul>
@@ -564,8 +565,8 @@
                         <div class="column">
                             <h3>Legal</h3>
                             <ul>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="./Privacy.html">Privacy Policy</a></li>
+                                <li><a href="./Terms.html">Terms & Conditions</a></li>
                             </ul>
                         </div>
                     </div>
@@ -592,7 +593,7 @@ function toggleMobileNav() {
     </script>
 
     <!-- Enquiry Form Popup -->
-
+<!-- 
 <div class="popup-container" id="popupForm">
     <div class="form-popup">
         <span class="close-btn" onclick="closePopup()">&times;</span>
@@ -609,25 +610,13 @@ function toggleMobileNav() {
             <input type="tel" id="mobile" name="mobile" placeholder="Mobile Number" required>
 
             <label for="city">Your City</label>
-            <select id="city" name="city" required>
-                <option value="">Please Select</option>
-                <option value="city1">City 1</option>
-                <option value="city2">City 2</option>
-            </select>
+            <input type="text" id="city" name="city" placeholder="Your City Name" required>
 
             <label for="destination">Preferred Destination</label>
-            <select id="destination" name="destination" required>
-                <option value="">Please Select</option>
-                <option value="destination1">Destination 1</option>
-                <option value="destination2">Destination 2</option>
-            </select>
+            <input type="text" id="city" name="Destination" placeholder="Your County Name" required>
 
-            <label for="office">Nearest Office</label>
-            <select id="office" name="office" required>
-                <option value="">Please Select</option>
-                <option value="office1">Office 1</option>
-                <option value="office2">Office 2</option>
-            </select>
+            
+           
 
             <label for="coaching">Are you looking for coaching?</label>
             <select id="coaching" name="coaching" required>
@@ -658,33 +647,688 @@ function toggleMobileNav() {
                 I agree to the <a href="#">terms & conditions</a>.
             </label>
 
-            <button type="submit">Submit</button>
+            <button class="sub1" type="submit">Submit</button>
+        </form>
+    </div>
+</div> -->
+
+
+
+
+
+
+
+<!-- <div class="popup-container" id="popupForm">
+    <div class="form-popup">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <form class="form-container" id="enquiryForm" action="enquiry.php" method="post">
+            <h2>Enquiry Form</h2>
+
+            <label for="fullname">Your Full Name</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Your Full Name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Email Address" required>
+
+            <label for="mobile">Mobile</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="Mobile Number" required>
+
+            <label for="city">Your City</label>
+            <input type="text" id="city" name="city" placeholder="Your City Name" required>
+
+            <label for="destination">Preferred Destination</label>
+            <input type="text" id="destinationInput" placeholder="Search and select a country" onfocus="showDropdown()" onkeyup="filterCountries()" autocomplete="off">
+            <select id="destination" name="destination" size="5" onclick="selectCountry(event)" onblur="hideDropdown()">
+            </select>
+
+            <label for="coaching">Are you looking for coaching?</label>
+            <select id="coaching" name="coaching" required>
+                <option value="">Please Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="loan">Are you looking for Education Loan?</label>
+            <select id="loan" name="loan" required>
+                <option value="">Please Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label>Please verify that you are human</label>
+            <img src="captcha.php" id="captchaImage" alt="Captcha" onclick="reloadCaptcha()">
+            <input type="text" id="captcha" name="captcha" placeholder="Enter Captcha" required>
+
+            <script>
+                function reloadCaptcha() {
+                    document.getElementById("captchaImage").src = "captcha.php?" + Math.random();
+                }
+
+                const countries = [
+                    "United States", "Canada", "United Kingdom", "Australia", "Germany", "France", "Italy", "Spain",
+                    "Netherlands", "Sweden", "Switzerland", "Belgium", "Austria", "Norway", "Denmark", "Finland", "Ireland",
+                    "Portugal", "Greece", "Russia", "China", "Japan", "South Korea", "India", "Singapore", "Malaysia",
+                    "Indonesia", "Thailand", "Vietnam", "Philippines", "Brazil", "Argentina", "Mexico", "Colombia",
+                    "Chile", "Peru", "South Africa", "Egypt", "Turkey", "United Arab Emirates", "Saudi Arabia", "Pakistan",
+                    "Bangladesh", "Nigeria", "Kenya", "New Zealand", "Poland", "Czech Republic", "Hungary", "Romania"
+                ];
+
+                const destinationSelect = document.getElementById("destination");
+                const destinationInput = document.getElementById("destinationInput");
+
+                function populateCountries() {
+                    destinationSelect.innerHTML = "";
+                    countries.forEach(country => {
+                        let option = document.createElement("option");
+                        option.value = country;
+                        option.textContent = country;
+                        destinationSelect.appendChild(option);
+                    });
+                }
+
+                function filterCountries() {
+                    let searchValue = destinationInput.value.toLowerCase();
+                    destinationSelect.innerHTML = "";
+
+                    countries.forEach(country => {
+                        if (country.toLowerCase().includes(searchValue)) {
+                            let option = document.createElement("option");
+                            option.value = country;
+                            option.textContent = country;
+                            destinationSelect.appendChild(option);
+                        }
+                    });
+
+                    destinationSelect.style.display = "block";  
+                }
+
+                function showDropdown() {
+                    destinationSelect.style.display = "block";
+                }
+
+                function hideDropdown() {
+                    setTimeout(() => {
+                        destinationSelect.style.display = "none";
+                    }, 200);
+                }
+
+                function selectCountry(event) {
+                    destinationInput.value = event.target.value;
+                    destinationSelect.style.display = "none";
+                }
+
+                document.addEventListener("DOMContentLoaded", populateCountries);
+            </script>
+
+            <label>
+                <input type="checkbox" id="terms" name="terms" required>
+                I agree to the <a href="#">terms & conditions</a>.
+            </label>
+
+            <button class="sub1" type="submit">Submit</button>
+        </form>
+    </div>
+</div> -->
+
+
+
+<!-- <div class="popup-container" id="popupForm">
+    <div class="form-popup">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <form class="form-container" id="enquiryForm" action="enquiry.php" method="post">
+            <h2>Enquiry Form</h2>
+
+            <label for="fullname">Your Full Name</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Your Full Name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Email Address" required>
+
+            <label for="mobile">Mobile</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="Mobile Number" required>
+
+            <label for="city">Your City</label>
+            <input type="text" id="city" name="city" placeholder="Your City Name" required>
+
+            <label for="destination">Preferred Destination</label>
+            <input type="text" id="destinationInput" placeholder="Search and select a country" onfocus="showDropdown()" onkeyup="filterCountries()" autocomplete="off">
+            <select id="destination" name="destination" size="5" onclick="selectCountry(event)" onblur="hideDropdown()" style="display: none;">
+            </select>
+
+            <label for="coaching">Are you looking for coaching?</label>
+            <select id="coaching" name="coaching" required>
+                <option value="">Please Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="loan">Are you looking for Education Loan?</label>
+            <select id="loan" name="loan" required>
+                <option value="">Please Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label>Please verify that you are human</label>
+            <img src="captcha.php" id="captchaImage" alt="Captcha" onclick="reloadCaptcha()">
+            <input type="text" id="captcha" name="captcha" placeholder="Enter Captcha" required>
+
+            <script>
+                function reloadCaptcha() {
+                    document.getElementById("captchaImage").src = "captcha.php?" + Math.random();
+                }
+
+                const countries = [
+                    "United States", "Canada", "United Kingdom", "Australia", "Germany", "France", "Italy", "Spain",
+                    "Netherlands", "Sweden", "Switzerland", "Belgium", "Austria", "Norway", "Denmark", "Finland", "Ireland",
+                    "Portugal", "Greece", "Russia", "China", "Japan", "South Korea", "India", "Singapore", "Malaysia",
+                    "Indonesia", "Thailand", "Vietnam", "Philippines", "Brazil", "Argentina", "Mexico", "Colombia",
+                    "Chile", "Peru", "South Africa", "Egypt", "Turkey", "United Arab Emirates", "Saudi Arabia", "Pakistan",
+                    "Bangladesh", "Nigeria", "Kenya", "New Zealand", "Poland", "Czech Republic", "Hungary", "Romania","other"
+                ];
+
+                const destinationSelect = document.getElementById("destination");
+                const destinationInput = document.getElementById("destinationInput");
+
+                function populateCountries() {
+                    destinationSelect.innerHTML = "";
+                    countries.forEach(country => {
+                        let option = document.createElement("option");
+                        option.value = country;
+                        option.textContent = country;
+                        destinationSelect.appendChild(option);
+                    });
+
+                    // Hide dropdown initially
+                    destinationSelect.style.display = "none";
+                }
+
+                function filterCountries() {
+                    let searchValue = destinationInput.value.toLowerCase();
+                    destinationSelect.innerHTML = "";
+
+                    countries.forEach(country => {
+                        if (country.toLowerCase().includes(searchValue)) {
+                            let option = document.createElement("option");
+                            option.value = country;
+                            option.textContent = country;
+                            destinationSelect.appendChild(option);
+                        }
+                    });
+
+                    // Show dropdown only if input is entered
+                    destinationSelect.style.display = searchValue.length > 0 ? "block" : "none";
+                }
+
+                function showDropdown() {
+                    if (destinationInput.value.length > 0) {
+                        destinationSelect.style.display = "block";
+                    }
+                }
+
+                function hideDropdown() {
+                    setTimeout(() => {
+                        destinationSelect.style.display = "none";
+                    }, 200);
+                }
+
+                function selectCountry(event) {
+                    destinationInput.value = event.target.value;
+                    destinationSelect.style.display = "none";
+                }
+
+                destinationInput.addEventListener("input", filterCountries);
+                destinationSelect.addEventListener("click", selectCountry);
+
+                document.addEventListener("DOMContentLoaded", populateCountries);
+            </script>
+
+            <label>
+                <input type="checkbox" id="terms" name="terms" required>
+                I agree to the <a href="#">terms & conditions</a>.
+            </label>
+
+            <button class="sub1" type="submit">Submit</button>
+        </form>
+    </div>
+</div> -->
+
+<!-- <div class="popup-container" id="popupForm">
+    <div class="form-popup">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <form class="form-container" id="enquiryForm" action="enquiry.php" method="post">
+            <h2>Enquiry Form</h2>
+
+            <label for="fullname">Your Full Name</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Your Full Name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Email Address" required>
+
+            <label for="mobile">Mobile</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="Mobile Number" required>
+
+            <label for="city">Your City</label>
+            <input type="text" id="cityInput" placeholder="Search and select a city" onfocus="showCityDropdown()" onkeyup="filterCities()" autocomplete="off">
+            <select id="city" name="city" size="5" onclick="selectCity(event)" onblur="hideCityDropdown()"></select>
+
+            <label for="destination">Preferred Destination</label>
+            <input type="text" id="destinationInput" placeholder="Search and select a country" onfocus="showDropdown()" onkeyup="filterCountries()" autocomplete="off">
+            <select id="destination" name="destination" size="5" onclick="selectCountry(event)" onblur="hideDropdown()"></select>
+
+            <label for="coaching">Are you looking for coaching?</label>
+            <select id="coaching" name="coaching" required>
+                <option value="">Please Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="loan">Are you looking for an Education Loan?</label>
+            <select id="loan" name="loan" required>
+                <option value="">Please Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label>Please verify that you are human</label>
+            <img src="captcha.php" id="captchaImage" alt="Captcha" onclick="reloadCaptcha()">
+            <input type="text" id="captcha" name="captcha" placeholder="Enter Captcha" required>
+
+            <script>
+                function reloadCaptcha() {
+                    document.getElementById("captchaImage").src = "captcha.php?" + Math.random();
+                }
+
+                const countries = [
+                    "United States", "Canada", "United Kingdom", "Australia", "Germany", "France", "Italy", "Spain",
+                    "Netherlands", "Sweden", "Switzerland", "Belgium", "Austria", "Norway", "Denmark", "Finland", "Ireland",
+                    "Portugal", "Greece", "Russia", "China", "Japan", "South Korea", "India", "Singapore", "Malaysia",
+                    "Indonesia", "Thailand", "Vietnam", "Philippines", "Brazil", "Argentina", "Mexico", "Colombia",
+                    "Chile", "Peru", "South Africa", "Egypt", "Turkey", "United Arab Emirates", "Saudi Arabia", "Pakistan",
+                    "Bangladesh", "Nigeria", "Kenya", "New Zealand", "Poland", "Czech Republic", "Hungary", "Romania","other"
+                ];
+
+                const cities = [
+                    "New York", "Los Angeles", "Chicago", "Houston", "Miami", "Toronto", "Vancouver", "Montreal", "Calgary", "Ottawa",
+                    "London", "Manchester", "Birmingham", "Liverpool", "Edinburgh", "Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide",
+                    "Berlin", "Munich", "Hamburg", "Frankfurt", "Cologne", "Paris", "Lyon", "Marseille", "Toulouse", "Nice",
+                    "Rome", "Milan", "Naples", "Turin", "Florence", "Madrid", "Barcelona", "Valencia", "Seville", "Zaragoza",
+                    "Amsterdam", "Rotterdam", "The Hague", "Utrecht", "Eindhoven", "Stockholm", "Gothenburg", "Malmö", "Uppsala", "Västerås",
+                    "Zurich", "Geneva", "Basel", "Bern", "Lausanne", "Brussels", "Antwerp", "Ghent", "Bruges", "Liège",
+                    "Vienna", "Salzburg", "Graz", "Innsbruck", "Linz", "Oslo", "Bergen", "Trondheim", "Stavanger", "Tromsø",
+                    "Copenhagen", "Aarhus", "Odense", "Aalborg", "Esbjerg", "Helsinki", "Espoo", "Tampere", "Turku", "Oulu",
+                    "Dublin", "Cork", "Limerick", "Galway", "Waterford", "Lisbon", "Porto", "Coimbra", "Braga", "Faro","other"
+                ];
+
+                const destinationSelect = document.getElementById("destination");
+                const destinationInput = document.getElementById("destinationInput");
+                const citySelect = document.getElementById("city");
+                const cityInput = document.getElementById("cityInput");
+
+                function populateDropdown(list, selectElement) {
+                    selectElement.innerHTML = "";
+                    list.forEach(item => {
+                        let option = document.createElement("option");
+                        option.value = item;
+                        option.textContent = item;
+                        selectElement.appendChild(option);
+                    });
+                }
+
+                function filterList(inputElement, list, selectElement) {
+                    let searchValue = inputElement.value.toLowerCase();
+                    selectElement.innerHTML = "";
+
+                    list.forEach(item => {
+                        if (item.toLowerCase().includes(searchValue)) {
+                            let option = document.createElement("option");
+                            option.value = item;
+                            option.textContent = item;
+                            selectElement.appendChild(option);
+                        }
+                    });
+
+                    selectElement.style.display = "block";  
+                }
+
+                function showDropdown() {
+                    destinationSelect.style.display = "block";
+                }
+
+                function hideDropdown() {
+                    setTimeout(() => {
+                        destinationSelect.style.display = "none";
+                    }, 200);
+                }
+
+                function selectCountry(event) {
+                    destinationInput.value = event.target.value;
+                    destinationSelect.style.display = "none";
+                }
+
+                function showCityDropdown() {
+                    citySelect.style.display = "block";
+                }
+
+                function hideCityDropdown() {
+                    setTimeout(() => {
+                        citySelect.style.display = "none";
+                    }, 200);
+                }
+
+                function selectCity(event) {
+                    cityInput.value = event.target.value;
+                    citySelect.style.display = "none";
+                }
+
+                function filterCountries() {
+                    filterList(destinationInput, countries, destinationSelect);
+                }
+
+                function filterCities() {
+                    filterList(cityInput, cities, citySelect);
+                }
+
+                document.addEventListener("DOMContentLoaded", function() {
+                    populateDropdown(countries, destinationSelect);
+                    populateDropdown(cities, citySelect);
+                });
+            </script>
+
+            <label>
+                <input type="checkbox" id="terms" name="terms" required>
+                I agree to the <a href="#">terms & conditions</a>.
+            </label>
+
+            <button class="sub1" type="submit">Submit</button>
+        </form>
+    </div>
+</div> -->
+
+<!-- <div class="popup-container" id="popupForm">
+    <div class="form-popup">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <form class="form-container" id="enquiryForm" action="enquiry.php" method="post">
+            <h2>Enquiry Form</h2>
+
+            <label for="fullname">Your Full Name</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Your Full Name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Email Address" required>
+
+            <label for="mobile">Mobile</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="Mobile Number" required>
+
+            <label for="city">Your City</label>
+            <input type="text" id="cityInput" placeholder="Search and select a city" onfocus="showCityDropdown()" onkeyup="filterCities()" autocomplete="off">
+            <select id="city" name="city" size="5" onclick="selectCity(event)" onblur="hideCityDropdown()"></select>
+
+            <label for="destination">Preferred Destination</label>
+            <input type="text" id="destinationInput" placeholder="Search and select a country" onfocus="showDropdown()" onkeyup="filterCountries()" autocomplete="off">
+            <select id="destination" name="destination" size="5" onclick="selectCountry(event)" onblur="hideDropdown()"></select>
+
+            <label for="coaching">Are you looking for coaching?</label>
+            <select id="coaching" name="coaching" required>
+                <option value="">Please Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="loan">Are you looking for an Education Loan?</label>
+            <select id="loan" name="loan" required>
+                <option value="">Please Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label>Please verify that you are human</label>
+            <img src="captcha.php" id="captchaImage" alt="Captcha" onclick="reloadCaptcha()">
+            <input type="text" id="captcha" name="captcha" placeholder="Enter Captcha" required>
+
+            <script>
+                function reloadCaptcha() {
+                    document.getElementById("captchaImage").src = "captcha.php?" + Math.random();
+                }
+
+                const countries = [
+                    "United States", "Canada", "United Kingdom", "Australia", "Germany", "France", "Italy", "Spain",
+                    "Netherlands", "Sweden", "Switzerland", "Belgium", "Austria", "Norway", "Denmark", "Finland", "Ireland",
+                    "Portugal", "Greece", "Russia", "China", "Japan", "South Korea", "India", "Singapore", "Malaysia",
+                    "Indonesia", "Thailand", "Vietnam", "Philippines", "Brazil", "Argentina", "Mexico", "Colombia",
+                    "Chile", "Peru", "South Africa", "Egypt", "Turkey", "United Arab Emirates", "Saudi Arabia", "Pakistan",
+                    "Bangladesh", "Nigeria", "Kenya", "New Zealand", "Poland", "Czech Republic", "Hungary", "Romania"
+                ];
+
+                const cities = [
+                    "New York", "Los Angeles", "Chicago", "Houston", "Miami", "Toronto", "Vancouver", "Montreal", "Calgary", "Ottawa",
+                    "London", "Manchester", "Birmingham", "Liverpool", "Edinburgh", "Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide",
+                    "Berlin", "Munich", "Hamburg", "Frankfurt", "Cologne", "Paris", "Lyon", "Marseille", "Toulouse", "Nice",
+                    "Rome", "Milan", "Naples", "Turin", "Florence", "Madrid", "Barcelona", "Valencia", "Seville", "Zaragoza",
+                    "Amsterdam", "Rotterdam", "The Hague", "Utrecht", "Eindhoven", "Stockholm", "Gothenburg", "Malmö", "Uppsala", "Västerås",
+                    "Zurich", "Geneva", "Basel", "Bern", "Lausanne", "Brussels", "Antwerp", "Ghent", "Bruges", "Liège",
+                    "Vienna", "Salzburg", "Graz", "Innsbruck", "Linz", "Oslo", "Bergen", "Trondheim", "Stavanger", "Tromsø",
+                    "Copenhagen", "Aarhus", "Odense", "Aalborg", "Esbjerg", "Helsinki", "Espoo", "Tampere", "Turku", "Oulu",
+                    "Dublin", "Cork", "Limerick", "Galway", "Waterford", "Lisbon", "Porto", "Coimbra", "Braga", "Faro"
+                ];
+
+                const destinationSelect = document.getElementById("destination");
+                const destinationInput = document.getElementById("destinationInput");
+                const citySelect = document.getElementById("city");
+                const cityInput = document.getElementById("cityInput");
+
+                function populateDropdown(list, selectElement) {
+                    selectElement.innerHTML = "";
+                    list.forEach(item => {
+                        let option = document.createElement("option");
+                        option.value = item;
+                        option.textContent = item;
+                        selectElement.appendChild(option);
+                    });
+                }
+
+                function filterList(inputElement, list, selectElement) {
+                    let searchValue = inputElement.value.toLowerCase();
+                    selectElement.innerHTML = "";
+
+                    list.forEach(item => {
+                        if (item.toLowerCase().includes(searchValue)) {
+                            let option = document.createElement("option");
+                            option.value = item;
+                            option.textContent = item;
+                            selectElement.appendChild(option);
+                        }
+                    });
+
+                    selectElement.style.display = "block";  
+                }
+
+                function showDropdown() {
+                    destinationSelect.style.display = "block";
+                }
+
+                function hideDropdown() {
+                    setTimeout(() => {
+                        destinationSelect.style.display = "none";
+                    }, 200);
+                }
+
+                function selectCountry(event) {
+                    destinationInput.value = event.target.value;
+                    destinationSelect.style.display = "none";
+                }
+
+                function showCityDropdown() {
+                    citySelect.style.display = "block";
+                }
+
+                function hideCityDropdown() {
+                    setTimeout(() => {
+                        citySelect.style.display = "none";
+                    }, 200);
+                }
+
+                function selectCity(event) {
+                    cityInput.value = event.target.value;
+                    citySelect.style.display = "none";
+                }
+
+                function filterCountries() {
+                    filterList(destinationInput, countries, destinationSelect);
+                }
+
+                function filterCities() {
+                    filterList(cityInput, cities, citySelect);
+                }
+
+                document.addEventListener("DOMContentLoaded", function() {
+                    populateDropdown(countries, destinationSelect);
+                    populateDropdown(cities, citySelect);
+                });
+            </script>
+
+            <label>
+                <input type="checkbox" id="terms" name="terms" required>
+                I agree to the <a href="#">terms & conditions</a>.
+            </label>
+
+            <button class="sub1" type="submit">Submit</button>
+        </form>
+    </div>
+</div> -->
+
+
+<div class="popup-container" id="popupForm">
+    <div class="form-popup">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <form class="form-container" id="enquiryForm" action="enquiry.php" method="post">
+            <h2>Enquiry Form</h2>
+
+            <label for="fullname">Your Full Name</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Your Full Name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Email Address" required>
+
+            <label for="mobile">Mobile</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="Mobile Number" required>
+
+            <label for="city">Your City</label>
+            <input type="text" id="cityInput" placeholder="Search and select a city" oninput="filterCities()" autocomplete="off">
+            <select id="city" name="city" size="5" onclick="selectCity(event)" onblur="hideDropdown(citySelect)" style="display: none;"></select>
+
+            <label for="destination">Preferred Destination</label>
+            <input type="text" id="destinationInput" placeholder="Search and select a country" oninput="filterCountries()" autocomplete="off">
+            <select id="destination" name="destination" size="5" onclick="selectCountry(event)" onblur="hideDropdown(destinationSelect)" style="display: none;"></select>
+
+            <label for="coaching">Are you looking for coaching?</label>
+            <select id="coaching" name="coaching" required>
+                <option value="">Please Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="loan">Are you looking for an Education Loan?</label>
+            <select id="loan" name="loan" required>
+                <option value="">Please Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <script>
+                const countries = [
+                    "United States", "Canada", "United Kingdom", "Australia", "Germany", "France", "Italy", "Spain",
+                    "Netherlands", "Sweden", "Switzerland", "Belgium", "Austria", "Norway", "Denmark", "Finland", "Ireland",
+                    "Portugal", "Greece", "Russia", "China", "Japan", "South Korea", "India", "Singapore", "Malaysia",
+                    "Indonesia", "Thailand", "Vietnam", "Philippines", "Brazil", "Argentina", "Mexico", "Colombia",
+                    "Chile", "Peru", "South Africa", "Egypt", "Turkey", "United Arab Emirates", "Saudi Arabia", "Pakistan",
+                    "Bangladesh", "Nigeria", "Kenya", "New Zealand", "Poland", "Czech Republic", "Hungary", "Romania","Other"
+                ];
+
+                const cities = [
+                    "New York", "Los Angeles", "Chicago", "Houston", "Miami", "Toronto", "Vancouver", "Montreal", "Calgary", "Ottawa",
+                    "London", "Manchester", "Birmingham", "Liverpool", "Edinburgh", "Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide",
+                    "Berlin", "Munich", "Hamburg", "Frankfurt", "Cologne", "Paris", "Lyon", "Marseille", "Toulouse", "Nice",
+                    "Rome", "Milan", "Naples", "Turin", "Florence", "Madrid", "Barcelona", "Valencia", "Seville", "Zaragoza","Other"
+                ];
+
+                const destinationSelect = document.getElementById("destination");
+                const destinationInput = document.getElementById("destinationInput");
+                const citySelect = document.getElementById("city");
+                const cityInput = document.getElementById("cityInput");
+
+                function populateDropdown(list, selectElement) {
+                    selectElement.innerHTML = "";
+                    list.forEach(item => {
+                        let option = document.createElement("option");
+                        option.value = item;
+                        option.textContent = item;
+                        selectElement.appendChild(option);
+                    });
+                }
+
+                function filterList(inputElement, list, selectElement) {
+                    let searchValue = inputElement.value.toLowerCase();
+                    selectElement.innerHTML = "";
+
+                    list.forEach(item => {
+                        if (item.toLowerCase().includes(searchValue)) {
+                            let option = document.createElement("option");
+                            option.value = item;
+                            option.textContent = item;
+                            selectElement.appendChild(option);
+                        }
+                    });
+
+                    selectElement.style.display = searchValue ? "block" : "none";  
+                }
+
+                function hideDropdown(selectElement) {
+                    setTimeout(() => {
+                        selectElement.style.display = "none";
+                    }, 200);
+                }
+
+                function selectCountry(event) {
+                    destinationInput.value = event.target.value;
+                    destinationSelect.style.display = "none";
+                }
+
+                function selectCity(event) {
+                    cityInput.value = event.target.value;
+                    citySelect.style.display = "none";
+                }
+
+                function filterCountries() {
+                    filterList(destinationInput, countries, destinationSelect);
+                }
+
+                function filterCities() {
+                    filterList(cityInput, cities, citySelect);
+                }
+            </script>
+
+            <label>
+                <input type="checkbox" id="terms" name="terms" required>
+                I agree to the <a href="#">terms & conditions</a>.
+            </label>
+
+            <button class="sub1" type="submit">Submit</button>
         </form>
     </div>
 </div>
 
-    <script>
-    function openPopup() {
-    document.getElementById("popupForm").style.display = "flex";
-}
 
-function closePopup() {
-    document.getElementById("popupForm").style.display = "none";
-}
 
-// popup does not appear on page load
-window.onload = function() {
-    document.getElementById("popupForm").style.display = "none";
-};
-
-// Close popup when clicking outside the form
-window.onclick = function(event) {
-    let popup = document.getElementById("popupForm");
-    if (event.target === popup) {
-        closePopup();
+   <script>
+   
+   function openPopup() {
+        document.getElementById("popupForm").style.display = "flex"; // Show the popup
     }
-};
 
+    function closePopup() {
+        document.getElementById("popupForm").style.display = "none"; // Hide the popup
+    }
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
